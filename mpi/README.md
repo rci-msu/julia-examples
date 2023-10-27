@@ -11,8 +11,6 @@ The preferred way to configure MPI.jl is to use Julia environments, that way
 - you don’t clutter your default Julia depot (~/.julia) with the MPI packages.
 - you can easily create the environment’s MPI preferences and reuse them in different projects, directories, etc., just by telling Julia to load your environment.
 
-
-
 1. Load Julia
 
     ```
