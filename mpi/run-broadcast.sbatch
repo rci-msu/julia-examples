@@ -3,9 +3,9 @@
 ## All other lines are read by the shell.
 ##
 #SBATCH --account=group-rci             # specify the account to use
-##SBATCH --reservation=eele565
+#SBATCH --reservation=eele565
 #SBATCH --partition=legacy              # queue partition to run the job in
-#SBATCH --job-name=02-broadcast    
+#SBATCH --job-name=broadcast    
 #SBATCH --nodes=8                       # number of nodes to allocate
 #SBATCH --ntasks-per-node=16            # number of MPI tasks per node
 #SBATCH --cpus-per-task=2               # number of cores to allocate
@@ -19,4 +19,6 @@
 module load OpenMPI/4.1.1-GCC-11.2.0
 module load Julia/
 
-mpiexec --mca pml ob1 --mca btl tcp,self julia 02-broadcast.jl 
+ENV_NAME="mpi"
+
+mpiexec --mca pml ob1 --mca btl tcp,self julia --project="${ENV_NAME}" broadcast.jl 
